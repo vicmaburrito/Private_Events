@@ -20,3 +20,9 @@ RSpec.describe User, type: :model do
     end
   end
 end
+
+RSpec.describe User, type: :model do
+  it { should have_many(:events) }
+  it { should have_many(:event_attendances) }
+  it { should have_many(:attended_events) }
+end
