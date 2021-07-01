@@ -1,0 +1,9 @@
+<%= form_with(model: event_attendance) do |form| %>
+  <div class="main_form">
+    <%= form.hidden_field :attendee_id, value: current_user.id %>
+    <%= form.hidden_field :attended_event_id, value: event.id %>
+  </div>
+  <div>
+    <%= form.submit 'attend this event' %>
+  </div>
+<% end %>
