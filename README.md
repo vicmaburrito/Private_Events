@@ -15,7 +15,7 @@
 - Run `rails db:migrate`  in your terminal to migrate to db databases.
 - Run `$ rails server` to start your local host.
 - In your terminal go to (http://127.0.0.1:3000/) 
-- Sign up for a session and write new "secrets" or you can just watch them anonymously!
+- Sign up for a session and start a new event and attended other events!
 
 ## BUILT WITH
 
@@ -44,7 +44,7 @@ Feel free to check the [issues page](https://github.com/DanSam5K/private-events/
 
 ## ACKNOWLEDGMENTS
 
--Private-evenets Project by Microverse.
+-Private-events Project by Microverse.
 
 ## 📝 License MIT
 - This project is [MIT](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt) licensed.
