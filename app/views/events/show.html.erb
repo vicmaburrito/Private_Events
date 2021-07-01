@@ -1,13 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<div><%= @event.creator.email %></div>
-<div><%= @event.title%></div>
-<div><%= @event.body%></div>
-<div><%= @event.date%></div>
+<div class="event_show_cont"> 
+  <h4>Event Creator:</h4> <%= @event.creator.email %>
+</div>
+<br>
+<div class="event_show_cont">
+  <h4>Event title:</h4> <%= @event.title%>
+</div>
+<br>
+<div class="event_show_cont">
+  <h4>Event description:</h4> <%= @event.body%>
+</div>
+<br>
+<div class="event_show_cont">
+  <h4>Event date:</h4> <%= @event.date%>
+</div>
+<br>
+
+<div class="attende_list">
+<h4 class="attendee_list_title"> Attendees list:</h4>
 <% @event.attendees.each do |attendee|%>
-<div><%= attendee.email %></div>
+  <ul class="list">
+    <li class="attende_list_item"><%= attendee.email %></li>
+  </ul>
 <%end%>
+<div>
 
-
+<br>
+<br>
 <div><%= link_to 'Edit', edit_event_path(@event) %>
 <%= link_to 'Back', events_path %></div>
