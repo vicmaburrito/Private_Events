@@ -11,21 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
+
+ <div class="main-form">
+    <%= form.label :title, 'Event title'%>
     <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
+    <%= form.label :body, 'event description' %>
     <%= form.text_field :body %>
+    <%= form.label :date, 'date of the event' %>
+    <%= form.date_field :date %>
+    <%= form.hidden_field :creator_id, value:current_user.id %>
   </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
