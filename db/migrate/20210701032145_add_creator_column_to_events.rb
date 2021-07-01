@@ -1,5 +1,5 @@
 class AddCreatorColumnToEvents < ActiveRecord::Migration[6.1]
   def change
-    add_column :events, :creator_id, :integer
+    add_reference :events, :creator, index: true
   end
 end
