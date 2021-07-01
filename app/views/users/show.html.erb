@@ -1,9 +1,9 @@
+<h2><%= current_user.username %></h2>
 <div class="upcoming_events">
-<% end %>
   <div class="upcoming_title">
     <h4> Future Events:</h4>
   </div>
-  <% @user.attended_events.where('date < ?', DateTime.now).each do |event| %>
+  <% @user.attended_events.where('date >= ?', DateTime.now).each do |event| %>
     <ul class="events_list">
       <li class="single_event"> <%= event.title %></li>
     </ul>
@@ -18,9 +18,9 @@
   <div class="past_title">
     <h4> Past Events:</h4>
   </div>
-  <% @user.attended_events.where('date > ?', DateTime.now).each do |event| %>
+  <% @user.attended_events.where('date < ?', DateTime.now).each do |event| %>
     <ul class="events_list">
       <li class="single_event"> <%= event.title %></li>
     </ul>
   <% end %>
-</div> 
+</div>

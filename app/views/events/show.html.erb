@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="event_show_cont"> 
-  <h4>Event Creator:</h4> <%= @event.creator.email %>
+  <h4>Event Creator:</h4> <%= @event.creator.username %>
 </div>
 <br>
 <div class="event_show_cont">
@@ -21,7 +21,7 @@
 <h4 class="attendee_list_title"> Attendees list:</h4>
 <% @event.attendees.each do |attendee|%>
   <ul class="list">
-    <li class="attende_list_item"><%= attendee.email %></li>
+    <li class="attende_list_item"><%= attendee.username %></li>
   </ul>
 <%end%>
 <div>
