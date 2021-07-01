@@ -20,7 +20,7 @@ RSpec.describe Event, type: :model do
     end
     it 'ensures the length of the title has 15 maximum' do
       event = Event.new(body: 'party on the beach',
-                        title: 'this will ba a perty on the grreates beach ever on humanity!', date: 20 - 5 - 2021, creator_id: 1).save
+                        title: 'the greates beach ever on humanity!', date: 20 - 5 - 2021, creator_id: 1).save
       expect(event).to eq false
     end
   end
