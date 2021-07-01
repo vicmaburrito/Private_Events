@@ -1,5 +1,26 @@
-<% @user.attended_events.each do |event| %>
-  <div class= "title">
- <div> <%= event.title %></div>
-    <%= event.title %>
+<div class="upcoming_events">
 <% end %>
+  <div class="upcoming_title">
+    <h4> Future Events:</h4>
+  </div>
+  <% @user.attended_events.where('date < ?', DateTime.now).each do |event| %>
+    <ul class="events_list">
+      <li class="single_event"> <%= event.title %></li>
+    </ul>
+  <% end %>
+</div>
+
+<br>
+<hr class="middle_bar">
+<br>
+
+<div class="past_events">
+  <div class="past_title">
+    <h4> Past Events:</h4>
+  </div>
+  <% @user.attended_events.where('date > ?', DateTime.now).each do |event| %>
+    <ul class="events_list">
+      <li class="single_event"> <%= event.title %></li>
+    </ul>
+  <% end %>
+</div> 
