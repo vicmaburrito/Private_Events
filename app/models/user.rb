@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :events, foreign_key: :creator_id
   has_many :event_attendances, foreign_key: :attendee_id, class_name: 'EventAttendance'
   has_many :attended_events, through: :event_attendances
+  validates :username, presence: true
 end
