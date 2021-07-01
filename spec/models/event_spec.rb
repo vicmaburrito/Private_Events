@@ -44,3 +44,26 @@ RSpec.describe Event, type: :model do
   it { should have_many(:event_attendances) }
   it { should have_many(:attendees) }
 end
+
+RSpec.describe 'Create new event', type: :feature do
+    before :each do
+      User.create(username: 'carlos', email: 'franklinben23@gmail.com', password: '123fourfive')
+    end
+  
+    it 'signs in and create event' do
+      visit new_user_session_path
+      within('.login-form') do
+        fill_in 'Email', with: 'franklinben23@gmail.com'
+        fill_in 'Password', with: '123fourfive'
+      end
+      click_button 'Log in'
+      visit new_event_path
+      within('form') do
+        fill_in 'event_title', with: 'Party'
+        fill_in 'event_body', with: 'Party on the miami beach'
+        fill_in 'event_date', with: "2020-05-02"
+      end
+      click_button 'create event'
+      expect(current_path).to eq('/events/1')
+    end
+  end
