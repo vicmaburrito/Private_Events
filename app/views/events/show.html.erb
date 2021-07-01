@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<%= @event.creator %>
+<%= @event.creator.email %>
+<%= @event.title%>
+<%= @event.body%>
+<%= @event.date%>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
