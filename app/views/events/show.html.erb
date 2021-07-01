@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<%= @event.creator.email %>
-<%= @event.title%>
-<%= @event.body%>
-<%= @event.date%>
+<div><%= @event.creator.email %></div>
+<div><%= @event.title%></div>
+<div><%= @event.body%></div>
+<div><%= @event.date%></div>
+<% @event.attendees.each do |attendee|%>
+<div><%= attendee.email %></div>
+<%end%>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+
+<div><%= link_to 'Edit', edit_event_path(@event) %>
+<%= link_to 'Back', events_path %></div>

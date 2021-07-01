@@ -9,5 +9,4 @@ module EventAttendancesHelper
         end
       end
     end
-  end
 end

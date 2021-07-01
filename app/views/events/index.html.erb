@@ -15,10 +15,17 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.title %></td>
-        <td><%= event.body %></td>
-        <td><%= event.date %></td>
+        <td><%= event.title %></td><br>
+        <td><%= event.body %></td><br>
+        <td><%= event.date %></td><br>
+        <td><% event.attendees.each do |attendee| %>
+          <%= attendee.id%>
+            <%end%></td>
+        <% unless event.attendees.include?(current_user)%> 
         <td> <%= render 'event_attendances/form', event: event, event_attendance: @event_attendances %>
+        <%end%>
+
+
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,3 +37,5 @@
 <br>
 
 <%= link_to 'New Event', new_event_path %>
+<br>
+<%= link_to 'sign out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>

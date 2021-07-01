@@ -1,5 +1,5 @@
 class EventAttendancesController < ApplicationController
-
+    before_action :authenticate_user!
     def show
       @event_attendance = EventAttendance.find(params[:id])
     end

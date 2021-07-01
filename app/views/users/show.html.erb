@@ -1,8 +1,5 @@
-<%= @events.each do |event| %>
+<% @user.attended_events.each do |event| %>
   <div class= "title">
+ <div> <%= event.title %></div>
     <%= event.title %>
-  </div>
-  <div class= "body">
-    <%= event.body %>
-  </div>
-<%= end %> 
+<% end %>
