@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+<div class=" mt-2 ml-2 columns is-mobile ">
+  <div class="column is-half ">
+    <div class="button is-large is-black is-text-centered"> All Events</div>
+  </div>
+</div>
+<div class="top">
+  <div class="section">
+    <h2 class="title is-2">Upcoming Events</h2>
+      <div class="columns">
+        <% @future_events.each do |event| %> 
+          <div class="column is-3">
+            <div class="card">
+              <header class="card-hearder">
+                <div class="level">
+                  <div class="item m-3 has-text-centered">
+                    <h3 class="title is-4"> <%= event.title %></h3>
+                  </div>
+                  <div class="item m-3 has-text-centered">
+                    <span>Host: <%= event.creator.username%></span>
+                  </div>
+                </div>
+              </header>
+              <footer class="card-footer">
+                <%= link_to 'Show', event , class:"card-footer-item"%>
+                <%= link_to 'Edit', edit_event_path(event) , class:"card-footer-item"%>
+                <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } , class:"card-footer-item"%>
+              </footer>
+              <div class="card-content">
+                <div class="item has-text-centered">
+                  <% unless event.attendees.include?(current_user)%> 
+                    <%= render 'event_attendances/form', event: event, event_attendance: @event_attendances %>
+                  <%end%>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+<div class="top">
+  <div class="section">
+    <h2 class="title is-2">Past Events</h2>
+      <div class="columns">
+        <% @past_events.each do |event| %>    
+          <div class="column is-3">
+            <div class="card">
+              <header class="card-hearder">
+                <div class="level">
+                  <div class="item m-3 has-text-centered">
+                    <h3 class="title is-4"> <%= event.title %></h3>
+                  </div>
+                  <div class="item m-3 has-text-centered">
+                    <span>Host: <%= event.creator.username%></span>
+                  </div>
+                </div>
+              </header>
+              <footer class="card-footer">
+                <%= link_to 'Show', event , class:"card-footer-item"%>
+                <%= link_to 'Edit', edit_event_path(event) , class:"card-footer-item"%>
+                <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } , class:"card-footer-item"%>
+              </footer>
+              <div class="card-content">
+                <div class="item has-text-centered">
+                  <% unless event.attendees.include?(current_user)%> 
+                    <%= render 'event_attendances/form', event: event, event_attendance: @event_attendances %>
+                  <%end%>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>
